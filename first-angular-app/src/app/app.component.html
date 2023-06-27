@@ -2,5 +2,8 @@
   {{title}}
 </h2>
 
-<input type="text" [(ngModel)]="newTitle">
-<button class="btn" (click)="asi()">Click me!</button>
+<div class="form-group">
+  <input type="text" class="form-control" [(ngModel)]="newTitle">
+</div>
+
+<button class="btn btn-primary" (click)="asi()">Click me!</button>
