@@ -1,2 +1,3 @@
-<app-server-component></app-server-component>
-<app-server-component></app-server-component>
+<button class="btn btn-primary" (click)="createServer()" [disabled]="!allowNewServer">Add Server</button>
+<input class="form-control" type="text" [(ngModel)]="serverName">
+<p>{{serverCreationStatus}}</p>
