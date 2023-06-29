@@ -8,7 +8,10 @@ import { Component } from '@angular/core';
 export class ServersComponent {
   allowNewServer = false;
   serverCreationStatus = 'Server is not created'
+  userName = ''
   serverName = ''
+  isParagraphShowing = false
+  listOfClicks: Date[] = []
 
   constructor(){
     setTimeout(()=> {
@@ -18,9 +21,26 @@ export class ServersComponent {
 
   createServer() {
     this.serverCreationStatus = 'Server is created. Server name: ' + this.serverName
+    
   }
 
-  updateServerName(event: Event) {
-    this.serverName = (<HTMLInputElement>event.target).value;
+  // updateServerName(event: Event) {
+  //   this.serverName = (<HTMLInputElement>event.target).value;
+  // }
+
+  clearUserName() {
+    this.userName = ''
+  }
+
+  showParagraph() {
+    this.isParagraphShowing = true;
+    this.listOfClicks.push(new Date())
+  }
+
+  getColor() {
+    if(this.listOfClicks.length > 4) {
+      return 'blue'
+    }
+    return ''
   }
 }

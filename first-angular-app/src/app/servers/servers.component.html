@@ -1,3 +1,12 @@
-<button class="btn btn-primary" (click)="createServer()" [disabled]="!allowNewServer">Add Server</button>
+<!-- <button class="btn btn-primary" (click)="createServer()" [disabled]="!allowNewServer">Add Server</button>
 <input class="form-control" type="text" [(ngModel)]="serverName">
-<p>{{serverCreationStatus}}</p>
+<p>{{serverCreationStatus}}</p> -->
+
+<!-- <input type="text" class="form-control" [(ngModel)]="userName">
+<button class="btn btn-primary" [disabled]="!userName" (click)="clearUserName()">Clear user name</button> -->
+
+<button class="btn btn-primary" (click)="showParagraph()">Show Secret Paragraph</button>
+<p *ngIf="isParagraphShowing">Secret password = tune</p>
+<div *ngFor="let click of listOfClicks">
+  <p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{whiteColor: listOfClicks.length > 4}">{{click}}</p>
+</div>
