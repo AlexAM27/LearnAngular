@@ -1,8 +1,8 @@
 <div class="container">
   <h1 class="title">{{title}}</h1>
-  <div class="header">
-    <button class="btn" (click)="showRecipesList()">Recipes List</button>
-    <button class="btn" (click)="showShoppingList()">Shopping List</button>
+  <div class="header mb-3">
+    <button class="btn" [ngClass]="{'btn-secondary': recipesListVisible}" (click)="showRecipesList()">Recipes List</button>
+    <button class="btn" [ngClass]="{'btn-secondary': shoppingListVisible}" (click)="showShoppingList()">Shopping List</button>
   </div>
   <div *ngIf="recipesListVisible">
     <app-recipes-list></app-recipes-list>

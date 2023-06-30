@@ -18,3 +18,8 @@
   background-color: #495057;
   color: #f1f3f5;
 }
+
+.header .btn:active {
+  background-color: #495057;
+  color: #f1f3f5;
+}
