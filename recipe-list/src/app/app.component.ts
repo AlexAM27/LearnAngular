@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'recipe-list';
+  title = 'Some app for lists';
+  shoppingListVisible = false;
+  recipesListVisible = false;
+
+  showShoppingList() {
+    this.shoppingListVisible = true;
+    this.recipesListVisible = false;
+  }
+
+  showRecipesList() {
+    this.shoppingListVisible = false;
+    this.recipesListVisible = true;
+  }
 }

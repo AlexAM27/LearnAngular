@@ -1,0 +1,20 @@
+.title {
+  text-align: center;
+  color: #495057;
+}
+
+.header {
+  border: 1px solid #dee2e6;
+  display: flex;
+
+}
+
+.header .btn {
+  border: none;
+  width: 100%;
+}
+
+.header .btn:hover {
+  background-color: #495057;
+  color: #f1f3f5;
+}
