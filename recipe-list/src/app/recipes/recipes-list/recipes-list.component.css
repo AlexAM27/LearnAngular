@@ -3,6 +3,23 @@
   color: #495057;
 }
 
+.recipe-container {
+  text-align: center;
+}
+
 .clicable-icon {
   cursor: pointer;
+  font-size: 32px;
+}
+
+.img {
+  height: 300px;
+  width: 300px;
+}
+
+.actions {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
 }

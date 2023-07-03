@@ -27,9 +27,6 @@
       <tr *ngFor="let product of shoppingList">
         <td>
           <i class="bi bi-trash clicable-icon" (click)="deleteProduct(product.id)"></i>
-          <!-- <div>
-            <button class="btn" (click)="deleteProduct(product.id)">Delete</button>
-          </div> -->
         </td>
         <td>{{product.name}}</td>
         <td>{{product.amount}}</td>
