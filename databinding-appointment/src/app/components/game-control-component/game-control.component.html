@@ -1,0 +1,7 @@
+<div>
+  <button class="btn btn-primary" (click)="onGameStart()">Start Game</button>
+  <button class="btn btn-danger" (click)="onGameStop()">End Game</button>
+  <p>{{counter}}</p>
+  <app-odd *ngIf="counter % 2 === 0" [oddNumber]="counter"></app-odd>
+  <!-- <app-odd *ngIf="counter % 2 != 0" [oddNumber]="counter"></app-odd> -->
+</div>
