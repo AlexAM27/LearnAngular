@@ -23,5 +23,13 @@ export class AppComponent {
       content: blueprintCreated.blueprintContent
     });
   }
+
+  onElementNameChange() {
+    this.serverElements[0].name = 'changed';
+  }
+
+  onDestroyElement() {
+    this.serverElements.splice(0, 1);
+  }
  
 }
