@@ -1,1 +1,6 @@
-<app-game-control></app-game-control>
+<div>
+  <app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
+  <app-even [list]="evenNumbers"></app-even>
+  <app-odd [list]="oddNumbers"></app-odd>
+  <div></div>
+</div>

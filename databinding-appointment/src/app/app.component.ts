@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'databinding-appointment';
+  oddNumbers: number[] = [];
+  evenNumbers: number[] = [];
+
+  onIntervalFired(num: number) {
+    if (num % 2 !== 0) {
+      this.oddNumbers.push(num);
+    } else {
+      this.evenNumbers.push(num);
+    }
+  }
 }

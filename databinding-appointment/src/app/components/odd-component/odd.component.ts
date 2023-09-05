@@ -7,6 +7,6 @@ import { Component, Input } from "@angular/core";
 })
 
 export class OddComponent {
-  @Input() oddNumber: number | undefined;
+  @Input() list: number[] | undefined;
 
 }
