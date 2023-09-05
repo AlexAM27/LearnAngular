@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  @Output() showItem = new EventEmitter<{recipies: boolean, shoppingList: boolean}>();
+
+  onRecipiesClick() {
+    this.showItem.emit({recipies: true, shoppingList: false});
+  }
+
+  onShoppingListClick() {
+    this.showItem.emit({recipies: false, shoppingList: true});
+  }
+
 
 }
