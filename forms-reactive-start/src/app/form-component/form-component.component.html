@@ -1,0 +1,26 @@
+<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+  <form [formGroup]="dataForm" (ngSubmit)="onSubmitProject()">
+    <div class="form-group">
+      <label for="projectName">Project Name</label>
+      <input class="form-control" type="text" id="name" formControlName="projectName">
+      <span *ngIf="!dataForm.get('projectName').valid && dataForm.get('projectName').touched">
+        <span *ngIf="dataForm.get('projectName').errors['required']">This field should not be empty</span>
+        <span *ngIf="dataForm.get('projectName').errors['nameisForbidden']">This project name is not allowed</span>
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input class="form-control" type="email" id="email" formControlName="email">
+      <span *ngIf="!dataForm.get('email').valid && dataForm.get('email').touched" class="help-block">Please enter a valid email!</span>
+    </div>
+    <div class="form-group">
+      <label for="status">Project Status</label>
+      <select id="status" class="form-control" formControlName="status">
+        <option value="stable">Stable</option>
+        <option value="critical">Critical</option>
+        <option value="finished">Finished</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!dataForm.valid">Submit</button>
+  </form>
+</div>
