@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './recipe/recipe-list/recipe-item/recipe-item.component';
 import { RecipeListComponent } from './recipe/recipe-list/recipe-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { RecipiesComponent } from './recipe/recipies.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
@@ -32,7 +32,7 @@ import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component'
     RecipeStartComponent,
     RecipeEditComponent,
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
   providers: [RecipeService, ShoppingListService],
   bootstrap: [AppComponent],
 })
