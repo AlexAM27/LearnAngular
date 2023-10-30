@@ -1,29 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from './post.model';
 import { PostsService } from './posts.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  url = 'https://angular-complete-guide-80d4d-default-rtdb.europe-west1.firebasedatabase.app/';
+export class AppComponent implements OnInit, OnDestroy {
 
   loadedPosts: Post[] = [];
   isFetching = false;
+  errorMessage = null;
+  private errorSub: Subscription;
 
   constructor(
     private postService: PostsService
   ) {}
+  
 
   ngOnInit() {
+    this.errorSub = this.postService.error.subscribe(err => this.errorMessage = err);
+
     this.isFetching = true;
-    this.postService.fetchPost().subscribe(posts => {
+    this.postService.fetchPost().subscribe({
+     next: (posts) => {
+      this.isFetching = false;
       this.loadedPosts = posts;
+     },
+     error: (error) => {
+      this.isFetching = false;
+      this.errorMessage = error.message;
+     }
     });
-    this.isFetching = false;
+  }
+
+  ngOnDestroy(): void {
+    this.errorSub.unsubscribe();
   }
 
   onCreatePost(postData: Post) {
@@ -33,10 +48,16 @@ export class AppComponent implements OnInit {
 
   onFetchPosts() {
     this.isFetching = true;
-    this.postService.fetchPost().subscribe(posts => {
+    this.postService.fetchPost().subscribe({
+     next: (posts) => {
+      this.isFetching = false;
       this.loadedPosts = posts;
+     },
+     error: (error) => {
+      this.isFetching = false;
+      this.errorMessage = error.message;
+     }
     });
-    this.isFetching = false;
   }
 
   onClearPosts() {
@@ -44,5 +65,9 @@ export class AppComponent implements OnInit {
     this.postService.deletePosts().subscribe(() => {
       this.loadedPosts = [];
     });
+  }
+
+  onHandleError() {
+    this.errorMessage = null;
   }
 }
